@@ -7,12 +7,13 @@ import Internship from "./Internship";
 import AboutUs from "./AboutUs";
 import Footer from "./Footer";
 
-export default function Home() {
+export default function Home({ onProtectedAction }) {
   return (
     <>
-      <Hero />
+      <Hero onProtectedAction={onProtectedAction} />
       <Features />
       <ResumeEnhancer />
+      <ResumeUpload onProtectedAction={onProtectedAction} />
       <Footer />
     </>
   );

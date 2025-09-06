@@ -1,3 +1,59 @@
+/* Profile Dropdown Styles */
+.profile-menu {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.profile-btn {
+  color: white;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 0;
+}
+
+.profile-dropdown {
+  position: absolute;
+  top: 48px;
+  right: 0;
+  min-width: 140px;
+  background: #050715;
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(30,41,59,0.12);
+  padding: 5px 10px 9px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  z-index: 100;
+}
+
+.profile-dropdown .dropdown-item {
+  background: none;
+  border: none;
+  color: #fff6f6;
+  font-size: 1rem;
+  padding: 10px 24px;
+  text-align: left;
+  cursor: pointer;
+  border-radius: 8px;
+  margin: 0 8px 6px 8px;
+  transition: background 0.2s, color 0.2s;
+}
+.profile-dropdown .dropdown-item:last-child {
+  margin-bottom: 0;
+}
+.profile-dropdown .dropdown-item:hover {
+  background: #6366f1;
+  color: #fff;
+}
+.profile-dropdown .clerk-user-button {
+  margin: 0 auto 8px auto;
+  display: flex;
+  justify-content: center;
+}
 /* Enhanced Navbar Styles */
 
 /* Base Navbar */
@@ -222,9 +278,11 @@
 }
 
 .dropdown-item {
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.1);
   display: block;
   padding: 0.75rem 1.25rem;
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(254, 252, 255, 0.9);
   text-decoration: none;
   transition: all 0.3s ease;
   font-size: 0.95rem;
