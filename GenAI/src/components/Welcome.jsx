@@ -42,7 +42,7 @@ const InteractiveParticle = ({ x, y, delay }) => (
   />
 );
 
-const Welcome = ({ onScroll })=> {
+const Welcome = ({ onScroll, onProtectedAction })=> {
   const [particles, setParticles] = useState([]);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
    
@@ -106,8 +106,8 @@ const Welcome = ({ onScroll })=> {
       </div>
 
       {/* HERO Section - Bottom Right */}
-      <div className="hero-section">
-        <Brain size={80} className="hero-icon" strokeWidth={2} />
+      <div className="hero-s">
+        <Brain size={80} className="hero-i" strokeWidth={2} />
         <h1>HERO</h1>
         <div className="underline"></div>
       </div>
@@ -140,9 +140,8 @@ const Welcome = ({ onScroll })=> {
     
       <div className="cta-box">
         <h2>AI DRIVEN ROADMAP</h2>
-        <button onWheel={onScroll}
-         onTouchMove={onScroll}
-         onClick={onScroll}
+        <button
+          onClick={onScroll}
         >Discover Your Path</button>
         <p>
           Your trusted guide to navigate and accelerate your professional

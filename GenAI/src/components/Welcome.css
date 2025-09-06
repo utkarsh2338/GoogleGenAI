@@ -103,33 +103,33 @@
 }
 
 /* HERO section (bottom right) */
-.hero-section {
+.hero-s {
   position: absolute;
-  right: 50px;
-  bottom: 50px;
+  left: 1190px;
+  top: 550px;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 12px;
 }
 
-.hero-icon {
+.hero-i {
   color: #9b59b6;
   transition: transform 0.3s;
 }
 
-.hero-section:hover .hero-icon {
+.hero-s:hover .hero-i {
   transform: scale(1.1);
 }
 
-.hero-section h1 {
+.hero-s h1 {
   font-size: 4rem;
   font-weight: 900;
   color: white;
   text-shadow: 0 4px 20px rgba(0,0,0,0.5);
 }
 
-.hero-section .underline {
+.hero-s .underline {
   width: 60px;
   height: 4px;
   background: #9b59b6;
@@ -153,6 +153,8 @@
 
 /* CTA Box */
 .cta-box {
+  position: absolute;
+  bottom: 350px;
   text-align: center;
   max-width: 600px;
   padding: 40px;
