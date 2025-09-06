@@ -65,7 +65,8 @@ const Welcome = ({ onScroll })=> {
   };
 
   return (
-    <div className="welcome-container" onMouseMove={handleMouseMove}>
+    <div className="welcome-container" onMouseMove={handleMouseMove}
+     >
       {/* Particles */}
       {particles.map((particle) => (
         <InteractiveParticle
@@ -139,7 +140,10 @@ const Welcome = ({ onScroll })=> {
     
       <div className="cta-box">
         <h2>AI DRIVEN ROADMAP</h2>
-        <button onClick={onScroll}>Discover Your Path</button>
+        <button onWheel={onScroll}
+         onTouchMove={onScroll}
+         onClick={onScroll}
+        >Discover Your Path</button>
         <p>
           Your trusted guide to navigate and accelerate your professional
           journey. <br />
