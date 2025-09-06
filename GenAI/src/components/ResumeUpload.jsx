@@ -1,7 +1,7 @@
 import React from 'react'
 import { Upload, ArrowRight, Trophy, Zap } from 'lucide-react';
 import './ResumeUpload.css';
-const ResumeUpload = () => {
+const ResumeUpload = ({ onProtectedAction }) => {
   return (
     <div>
             <section className="interactive-section">
@@ -16,7 +16,7 @@ const ResumeUpload = () => {
               Discover your ideal career path through our comprehensive AI-powered assessment. 
               Get insights into your strengths, interests, and potential career matches.
             </p>
-            <button className="btn btn-quiz">
+            <button className="btn btn-quiz" onClick={() => onProtectedAction(() => {/* quiz logic here */})}>
               Take Quiz Now
               <Zap className="btn-special-icon" />
             </button>
@@ -36,7 +36,7 @@ const ResumeUpload = () => {
               <Upload className="upload-icon" />
               <p className="upload-text">Drop your resume here or click to browse</p>
             </div>
-            <button className="btn btn-upload">
+            <button className="btn btn-upload" onClick={() => onProtectedAction(() => {/* analyze resume logic here */})}>
               Analyze Resume
               <ArrowRight className="btn-icon" />
             </button>

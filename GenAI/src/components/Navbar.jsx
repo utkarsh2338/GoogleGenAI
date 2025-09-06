@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { Bot, Menu, X, User, ChevronDown } from 'lucide-react';
+import { useUser, UserButton } from '@clerk/clerk-react';
 import './Navbar.css';
 
 function Navbar() {
@@ -10,6 +11,7 @@ function Navbar() {
   const [userDropdown, setUserDropdown] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
+  const { isSignedIn } = useUser();
 
   const scrollToHomeSection = (sectionId) => {
     if (location.pathname === '/') {
@@ -36,8 +38,8 @@ function Navbar() {
 
   useEffect(() => {
     const handleHashLink = () => {
-      if (location.pathname === '/' && window.location.hash) {
-        const sectionId = window.location.hash.substring(1);
+      const sectionId = window.location.hash.substring(1);
+      if (sectionId) {
         setTimeout(() => {
           scrollToHomeSection(sectionId);
         }, 100);
@@ -101,7 +103,7 @@ function Navbar() {
         </button>
 
         {/* Nav Links */}
-        <div className={`nav-links ${isOpen ? 'active' : ''}`}>
+        <div className={`nav-links ${isOpen ? 'active' : ''}`}> 
           <NavLink
             to="/home"
             className={({ isActive }) => `nav-item ${isActive ? 'active-link' : ''}`}
@@ -135,8 +137,7 @@ function Navbar() {
             <span className="nav-text">Resume Check</span>
             <span className="nav-underline"></span>
           </button>
-         
-      
+
           <NavLink
             to="/AboutUs"
             className={({ isActive }) => `nav-item ${isActive ? 'active-link' : ''}`}
@@ -148,44 +149,22 @@ function Navbar() {
         </div>
 
         {/* Right Side - User Actions */}
-        <div className="nav-right">
-          <div className="user-menu">
-            <button 
-              className="user-menu-btn"
-              onClick={() => setUserDropdown(!userDropdown)}
+        <div className="nav-right" style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+          <NavLink to="/profile" className="profile-link">
+            <User className="user-icon" />
+          </NavLink>
+          {isSignedIn ? (
+            <UserButton />
+          ) : (
+            <button
+              className="sign-in-btn"
+              onClick={() => window.Clerk?.openSignIn()}
+              style={{ padding: '6px 16px', borderRadius: '6px', border: 'none', background: '#3b82f6', color: '#fff', cursor: 'pointer', fontWeight: 500 }}
             >
-              <User className="user-icon" />
-              <ChevronDown className={`chevron-icon ${userDropdown ? 'rotated' : ''}`} />
+              Sign In
             </button>
-            
-            <div className={`user-dropdown ${userDropdown ? 'active' : ''}`}>
-              <NavLink
-                to="/login"
-                className="dropdown-item"
-                onClick={() => handleNavClick('Login')}
-              >
-                Login
-              </NavLink>
-              <NavLink
-                to="/signup"
-                className="dropdown-item"
-                onClick={() => handleNavClick('Sign Up')}
-              >
-                Sign Up
-              </NavLink>
-              <NavLink
-                to="/profile"
-                className="dropdown-item"
-                onClick={() => handleNavClick('Profile')}
-              >
-                Profile
-              </NavLink>
-            </div>
-          </div>
-
-          
+          )}
         </div>
-
         {/* Mobile Overlay */}
         {isOpen && <div className="mobile-overlay" onClick={() => setIsOpen(false)}></div>}
       </div>
