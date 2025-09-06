@@ -1,0 +1,123 @@
+interactive-section {
+  position: relative;
+  z-index: 10;
+  padding: 5rem 1.5rem;
+   background: linear-gradient(135deg, #0f172a 0%, #581c87 50%, #0f172a 100%);
+ 
+}
+
+.interactive-container {
+  max-width: 80rem;
+  margin: 0 auto;
+  display: grid;
+  gap: 3rem;
+}
+
+@media (min-width: 1024px) {
+  .interactive-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.quiz-section,
+.upload-section {
+  border-radius: 1.5rem;
+  padding: 2rem;
+  backdrop-filter: blur(8px);
+  transform: scale(1);
+  transition: all 0.3s ease;
+}
+
+.quiz-section {
+  background: linear-gradient(135deg, rgba(147, 51, 234, 0.2), rgba(37, 99, 235, 0.2));
+}
+
+.upload-section {
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.2), rgba(79, 70, 229, 0.2));
+}
+
+.quiz-section:hover,
+.upload-section:hover {
+  transform: scale(1.05);
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.section-icon {
+  width: 3rem;
+  height: 3rem;
+  margin-right: 1rem;
+}
+
+.quiz-section .section-icon {
+  color: #fbbf24;
+}
+
+.upload-section .section-icon {
+  color: #60a5fa;
+}
+
+.section-subtitle {
+  font-size: 1.875rem;
+  font-weight: 700;
+}
+
+.section-text {
+  color: #d1d5db;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.upload-zone {
+  border: 2px dashed #60a5fa;
+  border-radius: 1rem;
+  padding: 2rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  transition: border-color 0.3s ease;
+}
+
+.upload-zone:hover {
+  border-color: #93c5fd;
+}
+
+.upload-icon {
+  width: 4rem;
+  height: 4rem;
+  color: #60a5fa;
+  margin: 0 auto 1rem;
+}
+
+.upload-text {
+  color: #93c5fd;
+}
+
+.btn-quiz {
+  background: linear-gradient(to right, #f59e0b, #f97316);
+}
+
+.btn-quiz:hover {
+  background: linear-gradient(to right, #d97706, #ea580c);
+}
+
+.btn-upload {
+  background: linear-gradient(to right, #2563eb, #4f46e5);
+}
+
+.btn-upload:hover {
+  background: linear-gradient(to right, #1d4ed8, #4338ca);
+}
+
+.btn-special-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  transition: transform 0.3s ease;
+}
+
+.btn-quiz:hover .btn-special-icon {
+  transform: rotate(12deg);
+}
