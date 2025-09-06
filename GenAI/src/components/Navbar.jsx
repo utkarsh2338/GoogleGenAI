@@ -135,13 +135,14 @@ function Navbar() {
             <span className="nav-text">Resume Check</span>
             <span className="nav-underline"></span>
           </button>
-
+         
+      
           <NavLink
-            to="/about"
+            to="/AboutUs"
             className={({ isActive }) => `nav-item ${isActive ? 'active-link' : ''}`}
-            onClick={() => handleNavClick('About Us')}
+            onClick={() => handleNavClick('AboutUs')}
           >
-            <span className="nav-text">About Us</span>
+            <span className="nav-text">AboutUs</span>
             <span className="nav-underline"></span>
           </NavLink>
         </div>
@@ -182,13 +183,7 @@ function Navbar() {
             </div>
           </div>
 
-          <NavLink
-            to="/get-started"
-            className="cta-button"
-            onClick={() => handleNavClick('Get Started')}
-          >
-            Get Started
-          </NavLink>
+          
         </div>
 
         {/* Mobile Overlay */}

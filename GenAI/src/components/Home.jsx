@@ -12,9 +12,7 @@ export default function Home() {
     <>
       <Hero />
       <Features />
-    
       <ResumeEnhancer />
-      <AboutUs />
       <Footer />
     </>
   );
