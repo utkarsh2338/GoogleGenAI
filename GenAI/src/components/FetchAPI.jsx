@@ -25,14 +25,12 @@ const Spinner = () => (
 );
 
 const FetchAPI = () => {
-  const [searchTerm, setSearchTerm] = useState('java');
+  const [searchTerm, setSearchTerm] = useState('react');
 
   const { data, isLoading, error } = useQuery({
     queryKey: ['jobs', searchTerm],
     queryFn: () => getAPI(searchTerm),
   });
-
-
 
   const jobs = data?.jobs || [];
 
