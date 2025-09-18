@@ -11,13 +11,13 @@ function Navbar() {
   const location = useLocation();
   const navigate = useNavigate();
 
+  // Scroll to section within home page
   const scrollToHomeSection = (sectionId) => {
     if (location.pathname === '/') {
       const element = document.getElementById(sectionId);
       if (element) {
         const offset = 80;
-        const elementPosition =
-          element.getBoundingClientRect().top + window.pageYOffset;
+        const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
         window.scrollTo({
           top: elementPosition - offset,
           behavior: 'smooth',
@@ -28,12 +28,14 @@ function Navbar() {
     }
   };
 
+  // Set document title when nav item clicked
   useEffect(() => {
     if (clickedNav) {
       document.title = clickedNav;
     }
   }, [clickedNav]);
 
+  // Scroll to hash link if redirected to home with #id
   useEffect(() => {
     const handleHashLink = () => {
       if (location.pathname === '/' && window.location.hash) {
@@ -46,18 +48,17 @@ function Navbar() {
     handleHashLink();
   }, [location]);
 
-  // Handle scroll effect
+  // Add background on scroll
   useEffect(() => {
     const handleScroll = () => {
       const isScrolled = window.scrollY > 20;
       setScrolled(isScrolled);
     };
-
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Close mobile menu when clicking outside
+  // Close menus on outside click
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (!event.target.closest('.navbar')) {
@@ -65,7 +66,6 @@ function Navbar() {
         setUserDropdown(false);
       }
     };
-
     document.addEventListener('click', handleClickOutside);
     return () => document.removeEventListener('click', handleClickOutside);
   }, []);
@@ -91,7 +91,7 @@ function Navbar() {
           </NavLink>
         </div>
 
-        {/* Hamburger Menu */}
+        {/* Hamburger Menu (Mobile) */}
         <button 
           className={`menu-toggle ${isOpen ? 'active' : ''}`}
           onClick={() => setIsOpen(!isOpen)}
@@ -100,7 +100,7 @@ function Navbar() {
           {isOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
 
-        {/* Nav Links */}
+        {/* Navigation Links */}
         <div className={`nav-links ${isOpen ? 'active' : ''}`}>
           <NavLink
             to="/home"
@@ -114,7 +114,7 @@ function Navbar() {
           <NavLink
             to="/internship"
             className={({ isActive }) => `nav-item ${isActive ? 'active-link' : ''}`}
-            onClick={() => handleNavClick('Internship')}
+            onClick={() => handleNavClick('Internships')}
           >
             <span className="nav-text">Internships</span>
             <span className="nav-underline"></span>
@@ -135,14 +135,13 @@ function Navbar() {
             <span className="nav-text">Resume Check</span>
             <span className="nav-underline"></span>
           </button>
-         
-      
+
           <NavLink
-            to="/AboutUs"
+            to="/aboutus"
             className={({ isActive }) => `nav-item ${isActive ? 'active-link' : ''}`}
             onClick={() => handleNavClick('AboutUs')}
           >
-            <span className="nav-text">AboutUs</span>
+            <span className="nav-text">About Us</span>
             <span className="nav-underline"></span>
           </NavLink>
         </div>
@@ -182,11 +181,9 @@ function Navbar() {
               </NavLink>
             </div>
           </div>
-
-          
         </div>
 
-        {/* Mobile Overlay */}
+        {/* Mobile Menu Overlay */}
         {isOpen && <div className="mobile-overlay" onClick={() => setIsOpen(false)}></div>}
       </div>
     </nav>

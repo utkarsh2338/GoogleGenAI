@@ -5,6 +5,7 @@ import Home from './components/Home'
 import Navbar from './components/Navbar'
 import Internship from './components/Internship'
 import AboutUs from './components/AboutUs'
+import FetchAPI from './components/FetchAPI'
 
 function App() {
   const [showMain, setShowMain] = useState(false)
@@ -27,7 +28,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/home" element={<Home />} />
-            <Route path='/Internship' element={<Internship/>} />
+            <Route path='/Internship' element={<FetchAPI/>} />
             <Route path="/AboutUs" element={<AboutUs />} />
 
           </Routes>
