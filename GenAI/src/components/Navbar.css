@@ -1,3 +1,236 @@
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(15, 23, 42, 0.8);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 0;
+  margin-bottom: 2rem;
+}
+
+.navbar.scrolled {
+  background: rgba(15, 23, 42, 0.95);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.navbar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.5rem;
+  height: 70px;
+  position: relative;
+}
+
+/* Logo Styles */
+.navbar-logo {
+  z-index: 1001;
+}
+
+.logo-link {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.logo-link:hover {
+  transform: translateY(-2px);
+}
+
+.logo-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  color: #a855f7;
+  transition: all 0.3s ease;
+}
+
+.logo-link:hover .logo-icon {
+  color: #60a5fa;
+  transform: rotate(10deg);
+}
+
+.logo-text {
+  font-size: 1.75rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #a855f7, #60a5fa);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Mobile Menu Toggle */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  color: white;
+  transition: all 0.3s ease;
+  z-index: 1001;
+}
+
+.menu-toggle:hover {
+  background: rgba(168, 85, 247, 0.2);
+  transform: scale(1.1);
+}
+
+.menu-toggle.active {
+  background: rgba(168, 85, 247, 0.3);
+}
+
+/* Navigation Links */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-item {
+  position: relative;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 500;
+  font-size: 1rem;
+  padding: 0.75rem 0;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: inherit;
+}
+
+.nav-item:hover {
+  color: #a855f7;
+  transform: translateY(-2px);
+}
+
+.nav-text {
+  position: relative;
+  z-index: 2;
+}
+
+.nav-underline {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #a855f7, #60a5fa);
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 1px;
+}
+
+.nav-item:hover .nav-underline,
+.nav-item.active-link .nav-underline {
+  width: 100%;
+}
+
+.nav-item.active-link {
+  color: #60a5fa;
+}
+
+/* Right Side - User Menu */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  z-index: 1001;
+}
+
+.user-menu {
+  position: relative;
+}
+
+.user-menu-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.9);
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+}
+
+/* Profile Dropdown Styles */
+.profile-menu {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.profile-btn {
+  color: white;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 0;
+}
+
+.profile-dropdown {
+  position: absolute;
+  top: 48px;
+  right: 0;
+  min-width: 140px;
+  background: #050715;
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(30,41,59,0.12);
+  padding: 5px 10px 9px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  z-index: 100;
+}
+
+.profile-dropdown .dropdown-item {
+  background: none;
+  border: none;
+  color: #fff6f6;
+  font-size: 1rem;
+  padding: 10px 24px;
+  text-align: left;
+  cursor: pointer;
+  border-radius: 8px;
+  margin: 0 8px 6px 8px;
+  transition: background 0.2s, color 0.2s;
+}
+.profile-dropdown .dropdown-item:last-child {
+  margin-bottom: 0;
+}
+.profile-dropdown .dropdown-item:hover {
+  background: #6366f1;
+  color: #fff;
+}
+.profile-dropdown .clerk-user-button {
+  margin: 0 auto 8px auto;
+  display: flex;
+  justify-content: center;
+}
 /* Enhanced Navbar Styles */
 
 /* Base Navbar */
@@ -177,6 +410,7 @@
   font-size: 0.95rem;
 }
 
+
 .user-menu-btn:hover {
   background: rgba(168, 85, 247, 0.2);
   color: #a855f7;
@@ -222,9 +456,17 @@
 }
 
 .dropdown-item {
+
   display: block;
   padding: 0.75rem 1.25rem;
   color: rgba(255, 255, 255, 0.9);
+
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  display: block;
+  padding: 0.75rem 1.25rem;
+  color: rgba(254, 252, 255, 0.9);
+
   text-decoration: none;
   transition: all 0.3s ease;
   font-size: 0.95rem;

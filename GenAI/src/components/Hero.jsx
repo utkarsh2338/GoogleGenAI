@@ -2,7 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { ChevronRight, Brain, Upload, Target, Users, Star, ArrowRight, Bot, BookOpen, Trophy, Zap } from 'lucide-react';
 import './Hero.css';
 import ResumeUpload from './ResumeUpload';
+
 export default function CareerSarthiLanding() {
+
+export default function CareerSarthiLanding({ onProtectedAction }) {
+
   const [scrollY, setScrollY] = useState(0);
   const [activeSection, setActiveSection] = useState('hero');
 
@@ -12,7 +16,9 @@ export default function CareerSarthiLanding() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+
  
+
 
   const roadmapSteps = [
     { step: "01", title: "Take Assessment", desc: "Complete our comprehensive career quiz" },
@@ -34,6 +40,7 @@ export default function CareerSarthiLanding() {
       {/* Hero Section */}
       <section className="hero-section">
         <div className="hero-container">
+
           <div className="hero-icon">
             <Brain className="brain-icon" />
           </div>
@@ -55,10 +62,17 @@ export default function CareerSarthiLanding() {
             </span>
           </div>
           
+
+          <h2 className="hero-title">
+            Your AI-Powered Career Guide
+          </h2>
+
+
           <p className="hero-description">
             Unlock your potential with AI-powered career guidance. Get personalized roadmaps, 
             skill assessments, and expert recommendations to transform your career journey.
           </p>
+
           
           <div className="hero-buttons">
             <button className="btn btn-primary">
@@ -67,12 +81,24 @@ export default function CareerSarthiLanding() {
             </button>
             <button className="btn btn-secondary">
               Learn More
+
+
+          <div className="hero-icon">
+            <Brain className="brain-icon" />
+          </div>
+
+          <div className="hero-buttons">
+            <button className="btn btn-primary" onClick={() => onProtectedAction(() => {/* your roadmap logic here */})}>Zero to Hero Roadmap</button>
+            <button className="btn btn-secondary" onClick={() => onProtectedAction(() => {/* your start journey logic here */})}>
+              Start Your Journey <ArrowRight className="btn-icon" />
+
             </button>
           </div>
         </div>
       </section>
 
-      
+
+
       
 
       {/* Roadmap Section */}
@@ -100,7 +126,11 @@ export default function CareerSarthiLanding() {
       </section>
 
       {/* Interactive Sections */}
+
      <ResumeUpload />
+
+  <ResumeUpload onProtectedAction={onProtectedAction} />
+
 
       {/* CTA Section */}
       <section className="cta-section">
@@ -117,7 +147,7 @@ export default function CareerSarthiLanding() {
         </div>
       </section>
 
-     
+
    
     </div>
   );
