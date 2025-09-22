@@ -1,0 +1,227 @@
+.welcome-container {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  background: #1a1a2e; /* SIMPLE solid background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: none;
+}
+
+/* Particles */
+.particle {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: white;
+  border-radius: 50%;
+  opacity: 0.3;
+  animation: pulse 3s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.4); }
+}
+
+.mouse-follower {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  filter: blur(4px);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+/* Floating icons */
+.icons-wrapper .icon {
+  position: absolute;
+  color: rgba(255, 255, 255, 0.15);
+  animation: float 6s infinite ease-in-out;
+  transition: opacity 0.5s;
+}
+
+.icons-wrapper .icon:hover {
+  opacity: 0.4;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(5deg); }
+}
+
+/* Position classes for icons */
+.book { top: 15%; left: 20%; animation-delay: 0s; }
+.pen { top: 25%; right: 25%; animation-delay: 1s; }
+.pc { top: 65%; left: 15%; animation-delay: 2s; }
+.grad { top: 35%; right: 20%; animation-delay: 0.5s; }
+.brief { top: 75%; left: 25%; animation-delay: 1.5s; }
+.globe { top: 80%; right: 35%; animation-delay: 3s; }
+.idea { top: 45%; left: 80%; animation-delay: 2.5s; }
+.calc { top: 20%; right: 45%; animation-delay: 0.8s; }
+.target { top: 55%; left: 12%; animation-delay: 1.8s; }
+.rocket { top: 30%; left: 75%; animation-delay: 2.2s; }
+.star1 { top: 10%; left: 60%; animation-delay: 0.3s; }
+.star2 { top: 85%; left: 70%; animation-delay: 2.8s; }
+
+/* ZERO section (top left) */
+.zero-section {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.zero-icon {
+  color: #e74c3c;
+  transition: transform 0.3s;
+}
+
+.zero-section:hover .zero-icon {
+  transform: scale(1.1);
+}
+
+.zero-section h1 {
+  font-size: 4rem;
+  font-weight: 900;
+  color: white;
+  text-shadow: 0 4px 20px rgba(0,0,0,0.5);
+}
+
+.zero-section .underline {
+  width: 60px;
+  height: 4px;
+  background: #e74c3c;
+  border-radius: 4px;
+}
+
+/* HERO section (bottom right) */
+.hero-s {
+  position: absolute;
+  left: 1190px;
+  top: 550px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.hero-i {
+  color: #9b59b6;
+  transition: transform 0.3s;
+}
+
+.hero-s:hover .hero-i {
+  transform: scale(1.1);
+}
+
+.hero-s h1 {
+  font-size: 4rem;
+  font-weight: 900;
+  color: white;
+  text-shadow: 0 4px 20px rgba(0,0,0,0.5);
+}
+
+.hero-s .underline {
+  width: 60px;
+  height: 4px;
+  background: #9b59b6;
+  border-radius: 4px;
+}
+
+/* Center arrow */
+.arrow-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translate(-50%, -50%) translateY(0); }
+  50% { transform: translate(-50%, -50%) translateY(-20px); }
+}
+
+/* CTA Box */
+.cta-box {
+  position: absolute;
+  bottom: 350px;
+  text-align: center;
+  max-width: 600px;
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 20px;
+  backdrop-filter: blur(8px);
+  z-index: 10;
+  transition: transform 0.3s, background 0.3s;
+}
+
+.cta-box:hover {
+  transform: scale(1.05);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.cta-box h2 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  background: linear-gradient(90deg, #ff6f61, #ffcc70);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+
+.cta-box button {
+  background: linear-gradient(90deg, #8e44ad, #e84393);
+  color: white;
+  border: none;
+  padding: 14px 36px;
+  border-radius: 40px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 20px;
+  transition: transform 0.3s, background 0.3s;
+}
+
+.cta-box button:hover {
+  transform: scale(1.1);
+  background: linear-gradient(90deg, #732d91, #d63078);
+}
+
+.cta-box p {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+.arrow-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.arrow-line path {
+  animation: dash-move 5s linear infinite;
+}
+
+@keyframes dash-move {
+  to {
+    stroke-dashoffset: -20;
+  }
+}
+
